@@ -1,2 +1,3 @@
 # Templates
  
+Obsidian templates
