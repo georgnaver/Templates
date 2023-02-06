@@ -5,7 +5,15 @@ alias: {{title | safe}}
 
 ---
 
-# {{title}}
+| |
+|------------ | ------------|
+| Title | {{title}} |
+| Authors | {{authors}} |
+| Publication | {{publicationTitle}} |
+| Zotero link | {{pdfZoteroLink}} |
+| Web link | {{url}} |
+
+### Citation
 
 {{bibliography}}
 
@@ -33,13 +41,18 @@ alias: {{title | safe}}
 > {{annotation.comment}}
 > [Page {{annotation.page}}](zotero://open-pdf/library/items/{{annotation.attachment.itemKey}}?page={{annotation.page}})
 {% endif %}
+{% if annotation.imageRelativePath %}
+![[{{annotation.imageRelativePath}}]]
+{% endif %}
 {% endfor %}
+
+---
+
+{% persist "notes" %}
 
 ### Take-aways
 
 -  
-
----
 
 ### Related
 
@@ -48,3 +61,5 @@ alias: {{title | safe}}
 ### Tags 
 
 #wip #literature-note #medicin #zotero 
+{% endpersist %}
+
